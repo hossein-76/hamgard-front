@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #5D1049;
+  --primary-lighter: #720D5D;
+  --primary-darker: #4E0D3A;
+}
+
+.entire-page {
+  background-color: var(--primary-color);
+}

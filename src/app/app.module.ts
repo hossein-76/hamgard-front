@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import {AuthService} from './auth/auth.service';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

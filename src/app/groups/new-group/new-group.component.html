@@ -1,0 +1,27 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm" class="mt-4">
+  <div class="form-group row">
+    <label for="name" class="col-sm-2 col-form-label">Group Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="name" name="name" ngModel>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="u1" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="u1" placeholder="email@example.com" name="u1" email ngModel>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="u2" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="u2" placeholder="email@example.com" name="u2" email ngModel>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="u3" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="u3" placeholder="email@example.com" name="u3" email ngModel>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Create Group</button>
+</form>

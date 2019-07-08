@@ -1,0 +1,19 @@
+<button class="btn btn-success mt-3"
+  (click)="createClicked()"
+>Create</button>
+
+<hr>
+<div class="row">
+  <div class="col-md-5">
+    <app-groups-list></app-groups-list>
+  </div>
+  <div class="col-md-7">
+<!--    <app-groups-edit
+    *ngIf="selectedGroup; else infoText"
+    [group]="selectedGroup"></app-groups-edit>
+    <ng-template #infoText>
+      <p>Please Select A Recipe</p>
+    </ng-template>-->
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -2,50 +2,47 @@ import {Injectable} from '@angular/core';
 
 import * as firebase from 'firebase';
 import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class AuthService {
   token: string;
+  host = 'http://192.168.43.124:8001';
 
-  constructor(private  router: Router) {}
+  constructor(private  router: Router,
+              private http: HttpClient) {}
 
-  signupUser(email: string, password: string) {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(
-        () => {
-          this.router.navigate(['/']);
-        }
-      ).catch(
-        error => console.log(error)
-      );
+  signupUser(e: string, uName: string, fName: string, lName: string, pass: string) {
+    return this.http.post(this.host + '/api/account/register/', {
+      email: e,
+      username: uName,
+      firstname: fName,
+      lastname: lName,
+      password: pass
+    });
+
   }
 
-  signinUser(email: string, password: string) {
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(
-        response => {
-          firebase.auth().currentUser.getIdToken()
-            .then(
-              (token: string) => this.token = token
-            );
-          // console.log(this.token);
-          this.router.navigate(['/']);
-        }
-      ).catch(
-        error => console.log('error' + error)
+  signinUser(uname: string, pass: string) {
+    return this.http.post(this.host + '/api/account/signin/', {
+      username: uname,
+      password: pass
+    }).subscribe(
+      (response: any) => {
+        this.token = response.token;
+        console.log(this.token);
+        this.router.navigate(['/']);
+      }
     );
   }
 
   signoutUser() {
     firebase.auth().signOut();
     this.token = null;
+    this.router.navigate(['/']);
   }
 
-  getToekn() {
-    firebase.auth().currentUser.getIdToken()
-      .then(
-        (token: string) => this.token = token
-      );
+  getToken() {
     return this.token;
   }
 

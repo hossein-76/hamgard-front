@@ -11,14 +11,6 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import {AuthService} from './auth/auth.service';
-import { GroupsComponent } from './groups/groups.component';
-import { EventsComponent } from './events/events.component';
-import { GroupsListComponent } from './groups/groups-list/groups-list.component';
-import { GroupsEditComponent } from './groups/groups-edit/groups-edit.component';
-import { GroupsStartComponent } from './groups/groups-start/groups-start.component';
-import { NewGroupComponent } from './groups/new-group/new-group.component';
-import {GroupsService} from './groups/groups.service';
-
 
 @NgModule({
   declarations: [
@@ -27,13 +19,7 @@ import {GroupsService} from './groups/groups.service';
     HomeComponent,
     SignupComponent,
     SigninComponent,
-    NotFoundComponent,
-    GroupsComponent,
-    EventsComponent,
-    GroupsListComponent,
-    GroupsEditComponent,
-    GroupsStartComponent,
-    NewGroupComponent
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +27,7 @@ import {GroupsService} from './groups/groups.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService, GroupsService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
